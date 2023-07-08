@@ -1,0 +1,46 @@
+﻿@model ProductUpdateRequest
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="edit" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BrandId">Brand</label>
+                    <select class="form-control" asp-for="BrandId" asp-items="new SelectList(ViewBag.Brands,nameof(BrandGetAllItemResponce.Id),nameof(BrandGetAllItemResponce.Name))">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SalePrice">SalePrice</label>
+                    <input asp-for="SalePrice" class="form-control" placeholder="SalePrice">
+                    <span class="text-danger" asp-validation-for="SalePrice"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CostPrice">CostPrice</label>
+                    <input asp-for="CostPrice" class="form-control" placeholder="CostPrice">
+                    <span class="text-danger" asp-validation-for="CostPrice"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiscountPercent">DiscountPercent</label>
+                    <input asp-for="DiscountPercent" class="form-control" placeholder="DiscountPercent">
+                    <span class="text-danger" asp-validation-for="DiscountPercent"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageFile">ImageFile</label>
+                    <input asp-for="ImageFile" class="form-control" placeholder="ImageFile">
+                    <img src="@ViewBag.ImgUrl" width="250  " />
+                    <span class="text-danger" asp-validation-for="ImageFile"></span>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

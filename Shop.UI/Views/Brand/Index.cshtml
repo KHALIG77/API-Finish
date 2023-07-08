@@ -1,0 +1,43 @@
+﻿@model List<BrandGetAllItemResponce>
+@{
+    int order = 0;
+}
+
+<div class="container">
+	<div class="row">
+        <div class="col-md-8">
+            <a class="btn btn-primary" asp-action="create" asp-controller="brand">
+                Create
+            </a>
+        </div>
+		<div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                   @foreach(var brand in Model)
+                    {
+                        order++;
+                        <tr>
+                            <th scope="row">@order</th>
+                            <td>@brand.Name</td>
+                            <td>
+                                <a class="btn btn-warning" asp-action="edit" asp-route-id="@brand.Id">Edit</a>
+                                <a class="btn btn-danger" asp-action="delete" asp-route-id="@brand.Id">Delete</a>
+
+                            </td>
+                         
+                        </tr>
+                    }
+                </tbody>
+            </table>
+		</div>
+	</div>
+</div>
